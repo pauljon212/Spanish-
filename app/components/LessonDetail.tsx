@@ -59,7 +59,7 @@ export default function LessonDetail({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {lesson.vocabulary.map((word) => (
-            <VocabularyCard key={word.id} vocabulary={word} />
+            <VocabularyCard key={word.id} vocab={word} />
           ))}
         </div>
       </section>
@@ -73,6 +73,7 @@ export default function LessonDetail({
             <ExerciseCard
               key={exercise.id}
               exercise={exercise}
+              lessonId={lesson.id}
               onComplete={(correct) =>
                 onExerciseComplete(exercise.id, correct)
               }

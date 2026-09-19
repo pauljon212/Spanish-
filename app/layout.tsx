@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import SharedNav from './components/SharedNav';
+import SharedFooter from './components/SharedFooter';
 
 export const metadata: Metadata = {
-  title: 'Spanish Learn - Interactive Spanish Lessons',
-  description: 'Learn Spanish with interactive lessons, vocabulary, and exercises. Free and fun!',
+  title: 'JP Global - 3D Printing & Spanish Learning',
+  description: 'JP 3D Printing services and interactive Spanish language lessons in one unified platform.',
 };
 
 export default function RootLayout({
@@ -13,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-slate-50">
+        <SharedNav />
+        {children}
+        <SharedFooter />
+      </body>
     </html>
   );
 }

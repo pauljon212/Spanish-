@@ -11,7 +11,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="max-w-6xl mx-auto px-4 py-16 text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            Learn Spanish the Fun Way
+            Learn Español
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Master Spanish through interactive lessons, vocabulary drills, and

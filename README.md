@@ -1,160 +1,212 @@
-# Spanish Learn - Interactive Spanish Learning Platform
+# JP Global - Unified Platform
 
-A Duolingo-inspired web application for learning Spanish with interactive lessons, vocabulary drills, and progress tracking.
+A Next.js application combining **JP 3D Printing Services** and **Spanish Learn** into a single, cohesive platform.
 
-## 🎯 Features
+## Overview
 
-### MVP Scope
-- **Beginner to Advanced Lessons** – Organized into 3 difficulty levels with structured progression
-- **Interactive Exercises** – 4 exercise types:
-  - Vocabulary matching
-  - Multiple choice
-  - Translation (Spanish ↔ English)
-  - Listening comprehension
-- **Audio Playback** – Web Speech API for native pronunciation of Spanish words
-- **Progress Tracking** – Track lessons completed, accuracy per exercise, streak counter
-- **Responsive UI** – Mobile-first design with Tailwind CSS
-- **Real-time Feedback** – Immediate correction and guidance on answers
+This project merges two distinct applications:
 
-## 🚀 Quick Start
+- **JP 3D Printing** (`/`) - Professional 3D printing services with pricing, portfolio, and contact capabilities
+- **Spanish Learn** (`/learn`) - Interactive Spanish language lessons with vocabulary, exercises, and progress tracking
+
+Both functionalities are fully operational within a unified Next.js framework with shared navigation and branding.
+
+## Project Structure
+
+```
+app/
+├── page.tsx                    # JP 3D Printing homepage
+├── pricing/page.tsx            # Pricing page
+├── about/page.tsx              # About page
+├── contact/page.tsx            # Contact form page
+├── learn/
+│   ├── page.tsx                # Spanish Learn homepage
+│   ├── lessons/page.tsx         # Lessons directory
+│   ├── lessons/[id]/page.tsx    # Individual lesson detail
+│   └── progress/page.tsx        # Learning progress dashboard
+├── components/
+│   ├── SharedNav.tsx            # Unified navigation (updated)
+│   ├── SharedFooter.tsx         # Unified footer
+│   ├── Navigation.tsx           # Spanish learn nav
+│   ├── LessonCard.tsx           # Lesson preview card
+│   ├── ExerciseCard.tsx         # Interactive exercise
+│   ├── VocabularyCard.tsx       # Vocabulary display
+│   ├── ProgressDashboard.tsx    # Learning progress
+│   └── ...
+├── data/
+│   └── lessons.ts              # Spanish lesson content
+├── types/
+│   └── index.ts                # TypeScript types
+├── utils/
+│   └── storage.ts              # Local storage utilities
+├── layout.tsx                  # Root layout with unified nav/footer
+├── globals.css                 # Global styles
+└── ...
+```
+
+## Features
+
+### JP 3D Printing
+- **Homepage** - Hero section showcasing capabilities
+- **Services** - Rapid prototyping, custom parts, small-batch runs
+- **Process** - Step-by-step workflow explanation
+- **Materials** - PLA, PETG, TPU, ASA specifications
+- **Gallery** - Sample project showcases
+- **Pricing** - Transparent tiered pricing structure
+- **About** - Company background and mission
+- **Contact** - Inquiry form and email contact
+
+### Spanish Learn
+- **Lessons** - Beginner, intermediate, advanced levels
+- **Vocabulary** - Words with pronunciation guidance
+- **Interactive Exercises** - Matching, translation, pronunciation
+- **Progress Tracking** - Completion status and accuracy metrics
+- **Dashboard** - Learning statistics and streak tracking
+- **Responsive Design** - Mobile-optimized interface
+
+### Unified Features
+- **Shared Navigation** - Single header with links to both sections
+- **Unified Footer** - Site-wide footer with cross-links
+- **Consistent Styling** - Tailwind CSS throughout
+- **Responsive Design** - Mobile, tablet, and desktop support
+- **Fast Performance** - Next.js optimization and static generation
+
+## Getting Started
 
 ### Prerequisites
 - Node.js 18+ and npm
 
 ### Installation
+
 ```bash
-git clone https://github.com/yourusername/spanish-learn.git
-cd spanish-learn
 npm install
 ```
 
 ### Development
+
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) to see the application.
 
-### Build & Deploy
+- **JP 3D Printing**: `http://localhost:3000/`
+- **Spanish Learn**: `http://localhost:3000/learn`
+
+### Production Build
+
 ```bash
 npm run build
 npm start
 ```
 
-## 📁 Project Structure
+## Technology Stack
 
+- **Framework**: Next.js 16.3.5
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **Icons**: Lucide React
+- **State Management**: React hooks + localStorage
+- **Deployment**: Vercel
+
+## Deployment to Vercel
+
+### Option 1: Connect GitHub Repository
+
+1. Push the unified project to GitHub:
+   ```bash
+   git remote set-url origin https://github.com/pauljon212/jp-spanish.git
+   git push -u origin main
+   ```
+
+2. Visit [Vercel Dashboard](https://vercel.com/dashboard)
+3. Click "Add New" → "Project"
+4. Import from Git repository
+5. Select the `jp-spanish` repository
+6. Click "Deploy"
+
+### Option 2: Direct CLI Deployment
+
+```bash
+npm install -g vercel
+vercel
 ```
-app/
-├── components/          # Reusable React components
-│   ├── ExerciseCard.tsx    # Exercise interaction logic
-│   ├── VocabularyCard.tsx  # Vocabulary display with audio
-│   ├── LessonCard.tsx      # Lesson preview card
-│   ├── ProgressDashboard.tsx  # Stats and metrics
-│   └── Navigation.tsx      # Top nav bar
-├── data/
-│   └── lessons.ts       # Lesson and exercise content
-├── types/
-│   └── index.ts         # TypeScript interfaces
-├── utils/
-│   ├── audio.ts         # Web Speech API integration
-│   └── storage.ts       # localStorage progress tracking
-├── lessons/
-│   ├── page.tsx         # Lessons directory page
-│   └── [id]/            # Individual lesson detail page
-├── progress/
-│   └── page.tsx         # Progress dashboard page
-├── page.tsx             # Home page
-└── layout.tsx           # Root layout
+
+### Environment Variables
+
+No environment variables required for basic functionality. Optional for advanced features:
+
+- `NEXT_PUBLIC_API_URL` - Backend API endpoint (if needed)
+
+## Routing Map
+
+### JP 3D Printing Routes
+- `/` - Homepage
+- `/pricing` - Pricing page
+- `/about` - About page
+- `/contact` - Contact page
+
+### Spanish Learn Routes
+- `/learn` - Learn homepage
+- `/learn/lessons` - All lessons by level
+- `/learn/lessons/[id]` - Individual lesson with vocabulary and exercises
+- `/learn/progress` - Progress dashboard
+
+## Data Management
+
+### Local Storage
+Learning progress, exercise results, and user streaks are stored in browser's localStorage for persistence across sessions.
+
+### Lesson Data
+Lessons are defined in `app/data/lessons.ts` with:
+- Vocabulary lists with translations and pronunciation
+- Exercises with multiple question types
+- Grammar explanations
+- Difficulty levels
+
+## Performance Optimizations
+
+- **Static Generation**: Pre-rendered pages at build time
+- **Image Optimization**: Next.js Image component
+- **CSS-in-JS**: Tailwind CSS with minimal bundle size
+- **Code Splitting**: Route-based chunks loaded on demand
+- **Caching**: Vercel's edge caching for fast global delivery
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## Contributing
+
+To add new lessons, update `app/data/lessons.ts`:
+
+```typescript
+{
+  id: 'lesson-slug',
+  title: 'Lesson Title',
+  description: 'Description',
+  level: 'beginner',
+  vocabulary: [...],
+  exercises: [...],
+  grammar: 'Optional grammar note'
+}
 ```
 
-## 📚 Lesson Content
+## License
 
-### Beginner
-1. **Greetings & Introductions** – Hola, Buenos días, Adiós, etc.
-2. **Numbers 1-10** – Counting fundamentals
+Sample/demo project. Customization and deployment guidelines available upon request.
 
-### Intermediate
-3. **Common Verbs** – Ser, Estar, Hablar, Comer, Vivir
+## Support
 
-### Advanced
-4. **Past Tense Basics** – Preterite conjugations
-
-## 💾 Data Persistence
-
-- **LocalStorage** – Progress, completion status, and exercise results stored locally
-- **No Backend Required** – Client-side state management only (MVP)
-
-## 🎤 Audio Features
-
-- **Web Speech API** – Native browser TTS for pronunciation
-- **Adjustable Speed** – Slower speech rate (0.8x) for learners
-- **Fallback Support** – Graceful degradation in unsupported browsers
-
-## 🎨 Design & UX
-
-- **Tailwind CSS** – Utility-first styling
-- **Mobile Responsive** – Works on all screen sizes
-- **Color-coded Difficulty** – Visual indicators for lesson levels
-- **Progress Bars** – Real-time accuracy visualization
-- **Icon Library** – lucide-react for consistent iconography
-
-## 🔄 Exercise Types
-
-1. **Vocabulary** – Select the correct English translation
-2. **Matching** – Match Spanish word to English meaning
-3. **Translation** – Type Spanish/English translation
-4. **Listening** – Identify spoken Spanish word from options
-
-## 📊 Progress Tracking
-
-Track the following metrics:
-- ✅ Lessons completed
-- 🎯 Overall accuracy percentage
-- 🔥 Learning streak
-- 📈 Per-exercise success rate
-
-## 🚀 Deployment
-
-Deployed on **Vercel** for free hosting and automatic deployments on git push.
-
-### Deploy Your Own
-1. Fork this repository
-2. Sign up at [vercel.com](https://vercel.com)
-3. Connect your GitHub repo
-4. Click "Deploy"
-
-Environment: Next.js with automatic optimization and Edge Functions support.
-
-## 🛠 Tech Stack
-
-- **Frontend Framework** – Next.js 14+ (App Router)
-- **Language** – TypeScript
-- **Styling** – Tailwind CSS + PostCSS
-- **State Management** – React Hooks + Context
-- **Storage** – Browser LocalStorage
-- **Audio** – Web Speech API
-- **Deployment** – Vercel
-
-## 📋 Future Enhancements (Post-MVP)
-
-- [ ] Backend API for cloud sync
-- [ ] User authentication
-- [ ] More lessons and vocabulary
-- [ ] Spaced repetition algorithm
-- [ ] Leaderboards
-- [ ] Mobile app (React Native)
-- [ ] Offline support
-- [ ] Custom voice selection
-- [ ] Gamification (badges, levels)
-
-## 📝 License
-
-MIT License – feel free to use this project for learning.
-
-## 💡 Contributing
-
-Suggestions and improvements welcome! Open an issue or PR.
+For deployment assistance or custom configurations, refer to:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Vercel Deployment Guide](https://vercel.com/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
 ---
 
-**Happy Learning! 🇪🇸**
+**Unified Project**: Combining professional services with interactive learning. Built with Next.js, deployed globally on Vercel.

@@ -1,0 +1,18 @@
+{
+  "projectName": "jp-spanish-unified",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "public": false,
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "regions": ["sfo1"],
+  "functions": {
+    "app/**/*.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  }
+}

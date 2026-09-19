@@ -1,6 +1,7 @@
 {
-  "name": "spanish-learn",
-  "version": "0.1.0",
+  "name": "jp-spanish-unified",
+  "version": "1.0.0",
+  "description": "Unified platform: JP 3D Printing services + Spanish Learn app",
   "private": true,
   "scripts": {
     "dev": "next dev",

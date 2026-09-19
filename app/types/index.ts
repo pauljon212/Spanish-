@@ -13,11 +13,12 @@ export interface Lesson {
   title: string;
   description: string;
   level: DifficultyLevel;
+  grammar?: string;
   vocabulary: Vocabulary[];
   exercises: Exercise[];
 }
 
-export type ExerciseType = 'vocab' | 'matching' | 'translation' | 'listening';
+export type ExerciseType = 'vocab' | 'matching' | 'translation' | 'listening' | 'fillblank';
 
 export interface Exercise {
   id: string;
